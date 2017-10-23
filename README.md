@@ -6,7 +6,9 @@ required functions.
 
 ## create learner
 RBM `RBM(num_x_units, num_h_units, cd_steps=CD_K)`
+
 AutoEncoder `AutoEncoder(num_x_units, num_h_units)`
+
 Denoising AutoEncoder `AutoEncoder(num_x_units, num_h_units, is_noisy=True)`
 
 ## training
@@ -24,4 +26,5 @@ Denoising AutoEncoder `AutoEncoder(num_x_units, num_h_units, is_noisy=True)`
 
 ## pretraining
 `utilities.save_weights(filename, W)`
+
 Then load in HW1 Matlab ANN implementation.
