@@ -132,11 +132,8 @@ if __name__ == '__main__':
     (train_data_, _) = utilities.import_data('../data/digitstrain.txt')
     (valid_data_, _) = utilities.import_data('../data/digitsvalid.txt')
 
-    # IPython.embed()
-
     (W, train_loss, valid_loss) = learner.train(train_data_, valid_data_, max_epoch=50)
-    print W.shape
-    #
+
     utilities.plot_weights(W, 100, 28*28)
     utilities.plot_loss(train_loss, valid_loss)
     utilities.save_weights('../results/ae_w.txt', W)

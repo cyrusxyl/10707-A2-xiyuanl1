@@ -3,6 +3,9 @@ import math
 import matplotlib.pyplot as plt
 from skimage.util.montage import montage2d
 
+"""
+Useful utility functions
+"""
 
 def import_data(filename):
     dataset = np.loadtxt(filename, delimiter=',')

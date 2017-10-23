@@ -199,23 +199,24 @@ class RBM(object):
 
 
 if __name__ == '__main__':
-    learner = RBM(28 * 28, 500)
+    learner = RBM(28 * 28, 100)
 
     # part a, part b
     (train_data_, _) = utilities.import_data('../data/digitstrain.txt')
     (valid_data_, _) = utilities.import_data('../data/digitsvalid.txt')
 
     (W, train_loss, valid_loss) = learner.train(train_data_, valid_data_, max_epoch=30, eta=0.01)
-    print W.shape
+    # print W.shape
 
-    # utilities.plot_weights(W, 50, 28*28)
+    utilities.plot_weights(W, 50, 28*28)
     utilities.plot_loss(train_loss, valid_loss)
-    # utilities.save_weights('../results/rbm_w.txt', W)
-    #
-    # # part c
-    # samples = []
-    # random_config = np.random.rand(100, 784)
-    # (_, samples) = learner.get_x_tilde(random_config.transpose(), eval_steps=1000)
-    #
-    # print samples.shape
-    # utilities.plot_weights(samples.transpose(), 100, 28*28)
+    # save weights to transport to matlab for pretraining
+    utilities.save_weights('../results/rbm_w.txt', W)
+
+    # part c
+    samples = []
+    random_config = np.random.rand(100, 784)
+    (_, samples) = learner.get_x_tilde(random_config.transpose(), eval_steps=1000)
+
+    print samples.shape
+    utilities.plot_weights(samples.transpose(), 100, 28*28)
